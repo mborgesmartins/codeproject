@@ -16,7 +16,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        Client::all();
+        return Client::all();
     }
 
     /**
@@ -37,7 +37,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        Client::create($request);
+        return Client::create($request->all());
     }
 
     /**
@@ -48,18 +48,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        Client::find($id)->all();
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return Client::find($id);
     }
 
     /**
@@ -71,7 +60,7 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Client::find($id)->update($request);
+        Client::find($id)->update($request->all());
 
     }
 
